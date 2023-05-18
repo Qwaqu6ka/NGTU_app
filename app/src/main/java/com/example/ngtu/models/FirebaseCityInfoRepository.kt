@@ -9,8 +9,26 @@ class FirebaseCityInfoRepository : CityInfoRepository {
 
     private val db = Firebase.firestore
 
-    override suspend fun findItemsByPhrase(request: String): List<Item> {
+    override suspend fun findItemsByPhrase(request: String): List<Product> {
         TODO("Not yet implemented")
+    }
+
+    override suspend fun getProductsByShopId(shopId: String): List<Product> {
+
+        var listToReturn = emptyList<Product>()
+
+        db.collection("items")
+            .whereEqualTo("shop_id", shopId)
+            .get()
+            .addOnSuccessListener { documents ->
+                listToReturn = documents.map {
+                    FirebaseParser.firebaseProductParser(it.data)
+                }
+            }
+            .addOnFailureListener { throw it }
+            .await()
+
+        return listToReturn
     }
 
     override suspend fun getShopsList(category: Category?): List<Shop> {
@@ -20,12 +38,11 @@ class FirebaseCityInfoRepository : CityInfoRepository {
             .get()
             .addOnSuccessListener { result ->
                 listToReturn = result.map {
-                    FirebaseParser.firebaseShopParser(it.data)
+                    FirebaseParser.firebaseShopParser(it.data, it.id)
                 }
             }
-            .addOnFailureListener {
-                throw it
-            }.await()
+            .addOnFailureListener { throw it }
+            .await()
 
         return if (category != null)
             listToReturn.filter {

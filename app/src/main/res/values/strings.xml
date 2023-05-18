@@ -23,4 +23,10 @@
     <string name="price_number">%1$dр</string>
     <string name="error_please_try_again_later">Ошибка! Пожалуйста, повторите позже</string>
     <string name="try_again">Попробовать снова</string>
+    <string name="search_items_hint">Поиск по товарам</string>
+    <string name="menu">Меню</string>
+    <string name="price_hint">Цена:</string>
+    <string name="category_hint">Категория:</string>
+    <string name="product_image">Изображение товара</string>
+    <string name="products_hint">Товары:</string>
 </resources>

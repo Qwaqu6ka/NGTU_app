@@ -4,15 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foundation.views.BaseFragment
 import com.example.foundation.views.BaseScreen
-import com.example.foundation.views.BaseViewModel
 import com.example.foundation.views.screenViewModel
 import com.example.ngtu.databinding.FragmentCategoryDetailsListBinding
 import com.example.ngtu.models.Category
-import com.example.ngtu.views.categorydetailsfragment.CategoryDetailsFragment
 import com.example.ngtu.views.onTryAgain
 import com.example.ngtu.views.renderSimpleResult
 
@@ -33,7 +31,7 @@ class CategoryDetailsListFragment : BaseFragment() {
     ): View {
         binding = FragmentCategoryDetailsListBinding.inflate(inflater, container, false)
 
-        val adapter = CategoryShopAdapter()
+        val adapter = CategoryShopAdapter(viewModel)
         binding.recyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.recyclerView.adapter = adapter
@@ -42,6 +40,10 @@ class CategoryDetailsListFragment : BaseFragment() {
             renderSimpleResult(binding.root, result) {
                 adapter.shops = it
             }
+        }
+
+        binding.searchLayout.editText?.addTextChangedListener {
+
         }
 
         onTryAgain(binding.root) {
