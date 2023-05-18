@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "186019382516",
+    "project_id": "ngtu-app",
+    "storage_bucket": "ngtu-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186019382516:android:fba236ee8452263d468aa1",
+        "android_client_info": {
+          "package_name": "com.example.ngtu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186019382516-7b0v1fugvaf8jsluqpajeeimeau9q3ic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfT0IuaC7u9ywsa-kTAeUnfBMlSMEK0ZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186019382516-7b0v1fugvaf8jsluqpajeeimeau9q3ic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

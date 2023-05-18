@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">NGTU</string>
+    <string name="logo">logo</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="do_enter">Войти</string>
+    <string name="do_register">Зарегистрироваться</string>
+    <string name="enter">Вход</string>
+    <string name="register">Регистрация</string>
+    <string name="food">Еда</string>
+    <string name="drugstore">Аптека</string>
+    <string name="stationery">Канцтовары</string>
+    <string name="list">Список</string>
+    <string name="map">Карта</string>
+    <string name="auth_mistake">Произошла ошибка. Проверьте введенные данные</string>
+    <string name="password_tip">Минимальная длинна парля 6 символов</string>
+    <string name="invalid_email_address">Неверный почтовый адрес</string>
+    <string name="email">Электронная почта</string>
+    <string name="network_error">Нет сети. Проверьте подключение к интернету</string>
+    <string name="address_hint">Адрес:</string>
+    <string name="mid_price_hint">Средняя цена:</string>
+    <string name="shop_image">Изображение магазина</string>
+    <string name="price_number">%1$fр</string>
+    <string name="error_please_try_again_later">Ошибка! Пожалуйста, повторите позже</string>
+    <string name="try_again">Попробовать снова</string>
+</resources>
