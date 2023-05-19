@@ -30,7 +30,6 @@ class CategoryDetailsFragment : BaseFragment() {
             binding.bottomNavView.setOnItemSelectedListener {
                 viewModel.onBottomTabSelected(it.itemId)
             }
-
             viewModel.activeTab.observe(viewLifecycleOwner) {
                 val targetScreen = when (it) {
                     is CategoryDetailsListFragment -> CategoryDetailsListFragment.Screen(viewModel.screen.categoryType)

@@ -8,6 +8,7 @@ import kotlinx.coroutines.tasks.await
 class FirebaseCityInfoRepository : CityInfoRepository {
 
     private val db = Firebase.firestore
+    private var shops: List<Shop>? = null
 
     override suspend fun findItemsByPhrase(request: String): List<Product> {
         TODO("Not yet implemented")
@@ -32,23 +33,27 @@ class FirebaseCityInfoRepository : CityInfoRepository {
     }
 
     override suspend fun getShopsList(category: Category?): List<Shop> {
-        var listToReturn = emptyList<Shop>()
+
+        if (shops != null) return filterShopListByCategory(shops!!, category)
 
         db.collection("shops")
             .get()
             .addOnSuccessListener { result ->
-                listToReturn = result.map {
+                shops = result.map {
                     FirebaseParser.firebaseShopParser(it.data, it.id)
                 }
             }
             .addOnFailureListener { throw it }
             .await()
 
-        return if (category != null)
-            listToReturn.filter {
-                it.type == category
-            }
-        else
-            listToReturn
+        return filterShopListByCategory(shops!!, category)
+    }
+
+    private fun filterShopListByCategory(list: List<Shop>, category: Category?) : List<Shop> {
+        if (category == null) return list
+
+        return list.filter {
+            it.type == category
+        }
     }
 }
