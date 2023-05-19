@@ -1,6 +1,5 @@
 package com.example.ngtu.models
 
-import android.util.Log
 import com.example.ngtu.utils.FirebaseParser
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -16,7 +15,6 @@ class FirebaseCityInfoRepository : CityInfoRepository {
 
     override suspend fun getProductsByShopId(shopId: String): List<Product> {
 
-        Log.d("debug", shopId)
         var listToReturn = emptyList<Product>()
 
         db.collection("items")

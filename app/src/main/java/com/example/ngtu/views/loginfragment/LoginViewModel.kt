@@ -1,6 +1,5 @@
 package com.example.ngtu.views.loginfragment
 
-import android.util.Log
 import com.example.foundation.navigator.Navigator
 import com.example.foundation.uiactions.UiActions
 import com.example.foundation.views.BaseViewModel
@@ -8,9 +7,6 @@ import com.example.ngtu.R
 import com.example.ngtu.views.categoryfragment.CategoryFragment
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthInvalidUserException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
 class LoginViewModel(
     private val navigator: Navigator,
@@ -18,7 +14,10 @@ class LoginViewModel(
     private val auth: FirebaseAuth
 ) : BaseViewModel() {
 
-    fun login(login: String, password: String) {
+    fun login(login: String?, password: String?) {
+
+        if (login.isNullOrEmpty() || password.isNullOrEmpty()) return
+
         auth.signInWithEmailAndPassword(login, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
