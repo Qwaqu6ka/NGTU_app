@@ -1,8 +1,6 @@
 package com.example.ngtu.models
 
-import com.example.foundation.models.Repository
-
-interface CityInfoRepository : Repository {
+interface CityInfoRepository {
 
     suspend fun findItemsByPhrase(request: String) : List<Product>
 

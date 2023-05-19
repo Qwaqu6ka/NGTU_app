@@ -24,10 +24,6 @@ class IntermediateNavigator : Navigator {
         it.launchInInnerFragmentManager(screen, fragmentManager, containerId)
     }
 
-    override fun goBack(result: Any?) = targetNavigator {
-        it.goBack(result)
-    }
-
     fun setTarget(navigator: Navigator?) {
         targetNavigator.resource = navigator
     }

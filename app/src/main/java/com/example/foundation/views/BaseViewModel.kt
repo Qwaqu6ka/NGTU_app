@@ -25,11 +25,6 @@ open class BaseViewModel : ViewModel() {
         super.onCleared()
         clearViewModelScope()
     }
-    /**
-     * Override this method in child classes if you want to listen for results
-     * from other screens
-     */
-    open fun onResult(result: Any) {}
 
     /**
      * Override this method if you want to control go-back behaviour.

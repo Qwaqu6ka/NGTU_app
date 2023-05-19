@@ -8,7 +8,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.foundation.ARG_SCREEN
-import com.example.foundation.utils.Event
 import com.example.foundation.views.BaseFragment
 import com.example.foundation.views.BaseScreen
 
@@ -18,8 +17,6 @@ class StackFragmentNavigator(
     private val animations: Animations,
     private val initialScreenCreator: () -> BaseScreen
 ) : Navigator {
-
-    private var result: Event<Any>? = null
 
     override fun launch(screen: BaseScreen) {
         launchFragment(screen)
@@ -36,14 +33,6 @@ class StackFragmentNavigator(
         containerId: Int
     ) {
         launchFragment(screen, false, fragmentManager, containerId)
-    }
-
-
-    override fun goBack(result: Any?) {
-        if (result != null) {
-            this.result = Event(result)
-        }
-        activity.onBackPressedDispatcher.onBackPressed()
     }
 
     fun onCreate(savedInstanceState: Bundle?) {

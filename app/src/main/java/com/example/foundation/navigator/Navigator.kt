@@ -11,5 +11,4 @@ interface Navigator {
 
     fun launchInInnerFragmentManager(screen: BaseScreen, fragmentManager: FragmentManager, containerId: Int)
 
-    fun goBack(result: Any? = null)
 }
