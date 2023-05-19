@@ -16,14 +16,12 @@ sealed class Result<T> {
     fun takeSuccess(): T? = if (this is SuccessResult) this.data else null
 }
 
-sealed class FinalResult<T> : Result<T>()
-
 class SuccessResult<T>(
     val data: T
-) : FinalResult<T>()
+) : Result<T>()
 
 class PendingResult<T> : Result<T>()
 
 class ErrorResult<T>(
     val exception: Exception
-) : FinalResult<T>()
+) : Result<T>()

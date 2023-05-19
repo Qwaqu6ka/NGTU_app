@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity(), FragmentHolder {
         navigator = StackFragmentNavigator(
             activity = this,
             fragmentContainerId = binding.mainFragmentContainer.id,
-            defaultToolbarTitleRes = R.string.app_name,
             animations = StackFragmentNavigator.Animations(
                 enter = R.anim.enter,
                 exit = R.anim.exit,
@@ -44,11 +43,6 @@ class MainActivity : AppCompatActivity(), FragmentHolder {
             initialScreenCreator = ::authScreenInitializer
         )
         navigator.onCreate(savedInstanceState)
-    }
-
-    override fun onDestroy() {
-        navigator.onDestroy()
-        super.onDestroy()
     }
 
     override fun onResume() {

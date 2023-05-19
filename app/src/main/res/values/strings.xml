@@ -13,7 +13,7 @@
     <string name="list">Список</string>
     <string name="map">Карта</string>
     <string name="auth_mistake">Произошла ошибка. Проверьте введенные данные</string>
-    <string name="password_tip">Минимальная длинна парля 6 символов</string>
+    <string name="password_tip">Минимальная длина пароля 6 символов</string>
     <string name="invalid_email_address">Неверный почтовый адрес</string>
     <string name="email">Электронная почта</string>
     <string name="network_error">Нет сети. Проверьте подключение к интернету</string>
