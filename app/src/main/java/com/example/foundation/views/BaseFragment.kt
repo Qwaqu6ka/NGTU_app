@@ -24,6 +24,4 @@ abstract class BaseFragment : Fragment() {
             is SuccessResult -> onSuccess(result.data)
         }
     }
-
-
 }
