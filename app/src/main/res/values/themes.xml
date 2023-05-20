@@ -14,10 +14,10 @@
     </style>
 
     <style name="CategoryItemStyle">
-        <item name="android:layout_width">200dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:lines">1</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="borderRound">10dp</item>
+        <item name="android:textSize">30sp</item>
     </style>
     
     <style name="ShopItemStyle">

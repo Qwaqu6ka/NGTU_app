@@ -1,5 +1,8 @@
-package com.example.ngtu.models
+package com.example.ngtu.models.repository
 
+import com.example.ngtu.models.Category
+import com.example.ngtu.models.Product
+import com.example.ngtu.models.Shop
 import com.example.ngtu.utils.FirebaseParser
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -10,8 +13,22 @@ class FirebaseCityInfoRepository : CityInfoRepository {
     private val db = Firebase.firestore
     private var shops: List<Shop>? = null
 
-    override suspend fun findItemsByPhrase(request: String): List<Product> {
-        TODO("Not yet implemented")
+    override suspend fun getProductsByPhrase(request: String): List<Product> {
+        var listToReturn = emptyList<Product>()
+
+        db.collection("items")
+            .get()
+            .addOnSuccessListener { documents ->
+                listToReturn = documents.map {
+                    FirebaseParser.firebaseProductParser(it.data)
+                }
+            }
+            .addOnFailureListener { throw it }
+            .await()
+
+        return listToReturn.filter {
+            it.name?.contains(request, true) ?: false
+        }
     }
 
     override suspend fun getProductsByShopId(shopId: String): List<Product> {

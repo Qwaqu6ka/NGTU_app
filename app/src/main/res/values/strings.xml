@@ -29,4 +29,8 @@
     <string name="category_hint">Категория:</string>
     <string name="product_image">Изображение товара</string>
     <string name="products_hint">Товары:</string>
+    <string name="sort_by">Сортировка</string>
+    <string name="by_title">По названию</string>
+    <string name="by_price">По цене</string>
+    <string name="search_by_products">Поиск по товарам</string>
 </resources>

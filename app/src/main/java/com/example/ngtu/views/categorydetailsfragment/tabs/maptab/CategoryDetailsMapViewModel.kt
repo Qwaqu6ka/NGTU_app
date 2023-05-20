@@ -3,7 +3,7 @@ package com.example.ngtu.views.categorydetailsfragment.tabs.maptab
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.foundation.views.BaseViewModel
-import com.example.ngtu.models.FirebaseCityInfoRepository
+import com.example.ngtu.models.repository.FirebaseCityInfoRepository
 import com.example.ngtu.models.Shop
 import kotlinx.coroutines.launch
 

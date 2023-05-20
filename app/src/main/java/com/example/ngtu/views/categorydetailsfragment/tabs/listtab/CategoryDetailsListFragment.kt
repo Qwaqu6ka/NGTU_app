@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foundation.views.BaseFragment
 import com.example.foundation.views.BaseScreen
 import com.example.foundation.views.screenViewModel
 import com.example.ngtu.databinding.FragmentCategoryDetailsListBinding
 import com.example.ngtu.models.Category
+import com.example.ngtu.models.SortType
 import com.example.ngtu.views.onTryAgain
 import com.example.ngtu.views.renderSimpleResult
 
@@ -42,8 +45,28 @@ class CategoryDetailsListFragment : BaseFragment() {
             }
         }
 
-        binding.searchLayout.editText?.addTextChangedListener {
+        val dropdownAdapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_dropdown_item,
+            SortType.values().map { getString(it.titleRes) }
+        )
+        binding.dropdownMenu.adapter = dropdownAdapter
 
+        binding.dropdownMenu.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                viewModel.onSortItemClick(position)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        binding.searchByProductsButton.setOnClickListener {
+            viewModel.onSearchButtonClicked()
         }
 
         onTryAgain(binding.root) {

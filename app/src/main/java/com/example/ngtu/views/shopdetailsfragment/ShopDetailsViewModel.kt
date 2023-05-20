@@ -4,7 +4,7 @@ import com.example.foundation.models.PendingResult
 import com.example.foundation.views.BaseViewModel
 import com.example.foundation.views.LiveResult
 import com.example.foundation.views.MutableLiveResult
-import com.example.ngtu.models.FirebaseCityInfoRepository
+import com.example.ngtu.models.repository.FirebaseCityInfoRepository
 import com.example.ngtu.models.Product
 
 class ShopDetailsViewModel(

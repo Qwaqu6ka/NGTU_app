@@ -2,7 +2,7 @@ package com.example.ngtu
 
 import android.app.Application
 import com.example.foundation.BaseApplication
-import com.example.ngtu.models.FirebaseCityInfoRepository
+import com.example.ngtu.models.repository.FirebaseCityInfoRepository
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth

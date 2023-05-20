@@ -22,7 +22,8 @@ class FirebaseParser {
                 name = entity["name"] as String?,
                 imageUrl = entity["image"] as String?,
                 price = entity["price"] as Long?,
-                shopId = entity["shop_id"] as String
+                shopId = entity["shop_id"] as String,
+                address = entity["address"] as String?
             )
 
         private fun getShopCategoryByName(name: String?) : Category {
